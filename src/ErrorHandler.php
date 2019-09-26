@@ -454,8 +454,8 @@ final class ErrorHandler
         if ($exception === $previousExceptionHandlerException) {
             // Disable the fatal error handler or the error will be reported twice
             self::$reservedMemory = null;
-
-            throw $exception;
+            //Changing this to prevent the exception being thrown as fatal error
+            return;
         }
 
         $this->handleException($previousExceptionHandlerException);
